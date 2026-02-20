@@ -1,0 +1,2 @@
+CREATE SCHEMA IF NOT EXISTS raw_schema;
+CREATE SCHEMA IF NOT EXISTS processed_schema_v1;

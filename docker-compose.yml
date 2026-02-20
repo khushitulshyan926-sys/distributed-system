@@ -29,7 +29,7 @@ services:
     image: postgres:15
     container_name: postgres
     environment:
-      POSTGRES_DB: raw_trades_v1
+      POSTGRES_DB: raw_trades_v2
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
@@ -57,7 +57,7 @@ services:
       - "8082:8082"
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/raw_trades_v1
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/raw_trades_v2
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
     restart: always
@@ -70,7 +70,7 @@ services:
       - postgres
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/raw_trades_v1
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/raw_trades_v2
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
     restart: always
