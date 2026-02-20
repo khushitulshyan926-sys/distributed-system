@@ -70,7 +70,7 @@ services:
       - postgres
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/raw_trades_v2
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/processed_trades_v2
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
     restart: always
