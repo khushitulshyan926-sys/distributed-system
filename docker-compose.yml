@@ -37,7 +37,7 @@ services:
     restart: always
 
   producer:
-    build: ./trade-system-producer
+    build: ./event-driven-trade-system/trade-system-producer
     container_name: producer
     depends_on:
       - kafka
@@ -48,7 +48,7 @@ services:
     restart: always
 
   consumer:
-    build: ./trade-system-consumer
+    build: ./event-driven-trade-system/trade-system-consumer
     container_name: consumer
     depends_on:
       - kafka
@@ -63,9 +63,8 @@ services:
     restart: always
   
   reconciliation-service:
-    image: reconciliation-service:latest
-    build:
-      context: ./reconciliation-service
+    build: ./reconciliation-service/recon
+    container_name: reconciliation-service
     depends_on:
       - kafka
       - postgres
@@ -74,3 +73,4 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/raw_trades
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
+    restart: always
